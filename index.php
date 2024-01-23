@@ -93,6 +93,11 @@
 
             <?php
                 foreach ($hotels as $key => $hotel) {
+                    if ($hotel['parking'] === true) {
+                        $parkingInfo = 'Parcheggio disponibile';
+                    } else {
+                        $parkingInfo = 'Nessun parcheggio';
+                    }
                     echo "<tr>";
                     echo '<th scope="row">'. ($key + 1) . "</th>";
                     echo "<td>". $hotel['name'] . "</td>";
