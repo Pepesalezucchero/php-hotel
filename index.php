@@ -51,9 +51,11 @@
                 ],
             ];
 
+            //intero array
             var_dump($hotels);
             echo "<br>";
 
+            //scritte singole
             foreach ($hotels as $hotel) {
                 if ($hotel['parking'] === true) {
                     $parkingInfo = 'Parcheggio disponibile';
@@ -70,8 +72,42 @@
                     . "Voto: " . $hotel['vote'] . " , " 
                     . "Distanza dal centro: " . $hotel['distance_to_center'] . "Km"
                 . "</h3>";
-            }
+            };
+
+            echo "<br>";
         ?>
+
+        <!-- tabella -->
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">parking</th>
+            <th scope="col">2</th>
+            <th scope="col">distance to center</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <?php
+                foreach ($hotels as $key => $hotel) {
+                    echo "<tr>";
+                    echo '<th scope="row">'. ($key + 1) . "</th>";
+                    echo "<td>". $hotel['name'] . "</td>";
+                    echo "<td>". $hotel['description'] . "</td>";
+                    echo "<td>". $parkingInfo . "</td>";
+                    echo "<td>". $hotel['vote'] . "</td>";
+                    echo "<td>". $hotel['distance_to_center'] . "</td>";
+                    echo "</tr>";
+                }
+
+                //var_dump($key);
+            ?>
+
+        </tbody>
+        </table>
 
     </body>
 </html>
